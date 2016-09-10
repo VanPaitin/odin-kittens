@@ -1,0 +1,40 @@
+<% if @kittens.empty? %>
+    <p>There are no kittens to show.</p>
+    <p>You might want to create some to show in the seeds file</p>
+<% else %>
+    <h5>You can create a new kitten <%= link_to "here", new_kitten_path %></h5>
+  <table>
+    <thead>
+      <th>name</th><th>age</th><th>cuteness</th><th>softness</th>
+    </thead>
+    <tbody>
+      <% @kittens.each do |kitten| %>
+      <tr>
+        <td><%= link_to kitten.name, kitten_path(kitten) %></td>
+        <td><%= kitten.age %></td><td><%= kitten.cuteness %></td>
+        <td><%= kitten.softness %></td>
+        <td><%= link_to "Edit", edit_kitten_path(kitten) %></td>
+        <td><%= link_to "Delete", kitten_path(kitten), method: :delete, data: { confirm: 'Are you sure?' }%></td>
+        <button class="btn btn-link" data-toggle="modal" data-target="#todo-<%= kitten.id %>-notes">
+          View notes
+        </button></td>
+        <div class="modal fade" id="todo-<%= kitten.id %>-notes" tabindex="-1" role="dialog" aria-labelledby="todo-<%= kitten.id %>-label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="todo-<%= kitten.id %>-label">Notes</h4>
+              </div>
+              <div class="modal-body">
+                <%= kitten.softness %>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

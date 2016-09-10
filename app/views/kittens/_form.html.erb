@@ -1,0 +1,13 @@
+<div class="container">
+  <%= form_for @kitten do |f| %>
+    <%= f.label :name, class: "lala" %>
+    <%= f.text_field :name %><br>
+    <%= f.label :age, class: "lala" %>
+    <%= f.select :age, options_for_select((2..6).to_a, @kitten.age) %><br>
+    <%= f.label :cuteness, class: "lala" %>
+    <%= f.select :cuteness, options_for_select(Kitten::CUTENESS, @kitten.cuteness) %><br>
+    <%= f.label :softness, class: "lala" %>
+    <%= f.select :softness, options_for_select(Kitten::SOFTNESS, @kitten.softness) %><br>
+    <%= f.submit class: "btn btn-success"%>
+  <% end %>
+</div>

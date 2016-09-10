@@ -1,0 +1,5 @@
+<h1>I am a kitten</h1>
+<p>If you don't like me, you can delete me <%= link_to "here", kitten_path(@kitten), method: :delete, data: { confirm: 'Are you sure?' }%></p>
+<h3>My name is <%= @kitten.name %></h3>
+<h4>I am <%= @kitten.age %> years old</h4>
+<h4>My cuteness level is <%= @kitten.cuteness %> and my softness level is <span><b><%= @kitten.softness %></b></span></h4>
