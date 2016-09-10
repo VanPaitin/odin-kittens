@@ -1,8 +1,7 @@
-# README
+# Odin Kittens
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
+This app is basically to try out api's with rails. The api that we might be consuming is the flicker photos api.
+As at now, the app is not yet live but it should be before the end of today.
 Things you may want to cover:
 
 * Ruby version
