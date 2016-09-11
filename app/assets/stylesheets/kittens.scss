@@ -1,0 +1,23 @@
+// Place all the styles related to the kittens controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container {
+  margin-top: 20px;
+  .lala {
+    padding-top: 20px;
+  }
+  #error_explanation {
+    color: red;
+  }
+}
+
+td, th {
+  border: solid;
+  border-color: #730E15;
+  padding: 5px;
+}
+
+.modal-footer p {
+  text-align: left;
+}
