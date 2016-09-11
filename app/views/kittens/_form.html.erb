@@ -1,5 +1,15 @@
 <div class="container">
   <%= form_for @kitten do |f| %>
+      <% if @kitten.errors.any? %>
+          <div id="error_explanation">
+            <h6><%= pluralize(@kitten.errors.count, "error") %> prohibited this kitten from being saved:</h6>
+            <ul>
+              <% @kitten.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
     <%= f.label :name, class: "lala" %>
     <%= f.text_field :name %><br>
     <%= f.label :age, class: "lala" %>
