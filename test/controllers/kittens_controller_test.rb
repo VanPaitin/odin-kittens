@@ -5,13 +5,22 @@ describe KittensController do
     create_list(:kitten, 4)
   end
 
-  it "should get index" do
-    get :index
+  describe "index action" do
+    it "should render the index page normally" do
+      get :index
 
-    assigns(:kittens).must_equal Kitten.all
-    assigns(:kittens).count.must_equal 4
-    must_respond_with :success
-    must_render_template :index
+      assigns(:kittens).must_equal Kitten.all
+      assigns(:kittens).count.must_equal 4
+      must_respond_with :success
+      must_render_template :index
+    end
+
+    it "the api part should work properly" do
+      get :index, format: :json
+
+      assigns(:kittens).must_equal Kitten.all
+      response.content_type.must_equal "application/json"
+    end
   end
 
   it "should get new" do
