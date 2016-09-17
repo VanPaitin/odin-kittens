@@ -1,0 +1,35 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.form-control {
+  width: 500px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-horizontal {
+  padding-top: 50px;
+}
+
+.text-center {
+  padding-top: 50px;
+}
+
+.navbar-header {
+  color: #F7F7F7;
+}
+
+.container-fluid p {
+  margin-right: 10px;
+  position: relative;
+  top: 40px;
+  a {
+    color: #ffdead;
+    text-decoration: none;
+    font-family: Cursive, serif;
+    &:hover {
+      color: #ffffff;
+    }
+  }
+}
