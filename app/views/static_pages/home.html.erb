@@ -1,0 +1,17 @@
+<div class="text-center">
+  <h3>Hi guys, welcome to my app, you can easily get your <b>Flickr</b> photos<br></h3>
+  <h3>by entering your <em><b>flickr id</b></em> below</h3>
+
+  <%= form_tag photos_path, method: :get, class: "form-horizontal", remote: true do %>
+    <div class="field form-group">
+      <%= label_tag :flickr_id, "Flickr id:", class: "control-label" %>
+      <%= text_field_tag :flickr_id, nil, class: "form-control", placeholder: "Enter your flickr id here" %>
+    </div>
+    <div class="actions form-group">
+      <div>
+        <%= submit_tag "Get Photos", class: "btn btn-success" %>
+      </div>
+    </div>
+  <% end %>
+  <div id="images"></div>
+</div>
