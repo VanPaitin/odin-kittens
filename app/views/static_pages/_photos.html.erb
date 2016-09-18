@@ -1,0 +1,13 @@
+<h1>
+  <em>Here are your photos...</em>
+  There are <%=	photos.flatten.compact.count %> of them
+</h1>
+<ul>
+  <% photos.each do |photo_group| %>
+      <li>
+        <% photo_group.compact.each.with_index do |photo, photo_index| %>
+            <%=	content_tag :div, picture_formatter(photo), class: "photo-#{photo_index}" %>
+        <% end %>
+      </li>
+  <% end %>
+</ul>

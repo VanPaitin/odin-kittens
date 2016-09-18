@@ -8,11 +8,7 @@
   margin-right: auto;
 }
 
-.form-horizontal {
-  padding-top: 50px;
-}
-
-.text-center {
+.form-horizontal, .text-center {
   padding-top: 50px;
 }
 
@@ -37,4 +33,19 @@
 #images {
   position: relative;
   top: 50px;
+  .photo-0 {
+    float: left;
+  }
+  .photo-1 {
+    float: right;
+  }
+  img {
+    padding-top: 75px;
+  }
+  ul {
+    list-style: none;
+    li {
+      //&:first-child:
+    }
+  }
 }
