@@ -1,5 +1,8 @@
 <% flash.each do |name, msg| %>
-$("#images").before('<%= content_tag :div, msg, class: "alert alert-#{name}" %>');
+$("#images").before('<%= content_tag :div, msg.html_safe, class: "alert alert-#{name}" %>');
 <% end %>
-
-
+<% if @photos %>
+  <% unless @photos.empty? %>
+    $("#images").html('<%= escape_javascript(render partial: "photos", object: @photos) %>');
+  <% end %>
+<% end %>

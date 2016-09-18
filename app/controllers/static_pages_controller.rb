@@ -8,19 +8,24 @@ class StaticPagesController < ApplicationController
     begin
       @photos = flickr.photos.search(user_id: params[:flickr_id]).to_a.in_groups_of 2
       if @photos.empty?
-        flash[:info] = "You have no photos. Do upload some photos and you will see them here"
+        flash.now[:info] = "You have no photos. Do upload some photos and you will see them here"
       end
     rescue FlickRaw::FailedResponse
       flash.now[:danger] = "We are sorry but Flickr does not know that id"
     end
-    respond_to :js
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
 
   def check_id_integrity
-    if params[:flickr_id].blank? || !params[:flickr_id].include?("@")
-      @message = "Invalid id, please enter an id that has the @symbol"
+    unless params[:flickr_id].include?("@")
+      flash.now[:warning] = "Invalid id, please enter an id that has an <span><b>@</b></span> in it"
+      respond_to do |format|
+        format.js { render :get_images }
+      end
     end
   end
 end
