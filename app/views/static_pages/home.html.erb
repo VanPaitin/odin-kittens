@@ -5,11 +5,11 @@
   <%= form_tag photos_path, method: :get, class: "form-horizontal", remote: true do %>
     <div class="field form-group">
       <%= label_tag :flickr_id, "Flickr id:", class: "control-label" %>
-      <%= text_field_tag :flickr_id, nil, class: "form-control", placeholder: "Enter your flickr id here" %>
+      <%= text_field_tag :flickr_id, nil, class: "form-control", placeholder: "Enter your flickr id here", required: true %>
     </div>
     <div class="actions form-group">
       <div>
-        <%= submit_tag "Get Photos", class: "btn btn-success" %>
+        <%= submit_tag "Get Photos", class: "btn btn-success", id: "button" %>
       </div>
     </div>
   <% end %>
