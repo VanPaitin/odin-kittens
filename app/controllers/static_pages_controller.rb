@@ -7,12 +7,13 @@ class StaticPagesController < ApplicationController
   def get_images
     begin
       @photos = flickr.photos.search(user_id: params[:flickr_id]).to_a.in_groups_of 2
+      if @photos.empty?
+        flash[:info] = "You have no photos. Do upload some photos and you will see them here"
+      end
     rescue FlickRaw::FailedResponse
-      flash[:notice] = "We are sorry but Flickr does not know that id"
+      flash.now[:danger] = "We are sorry but Flickr does not know that id"
     end
-    respond_to do |format|
-      format.js
-    end
+    respond_to :js
   end
 
   private
