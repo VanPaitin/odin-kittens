@@ -1,8 +1,15 @@
-<% flash.each do |name, msg| %>
-$("#images").before('<%= content_tag :div, msg.html_safe, class: "alert alert-#{name}" %>');
-<% end %>
+$( ".alert" ).remove();
+  $photoSelector = $("#images");
 <% if @photos %>
   <% unless @photos.empty? %>
-    $("#images").html('<%= escape_javascript(render partial: "photos", object: @photos) %>');
+    $photoSelector.html('<%= escape_javascript(render partial: "photos", object: @photos) %>');
+  <% else %>
+    $photoSelector.before('<%= content_tag :div, flash[:info], class: "alert alert-info" %>');
+    $photoSelector.empty();
   <% end %>
+<% else %>
+  <% flash.each do |name, msg| %>
+    $photoSelector.before('<%= content_tag :div, msg.html_safe, class: "alert alert-#{name}" %>');
+  <% end %>
+    $photoSelector.empty();
 <% end %>
